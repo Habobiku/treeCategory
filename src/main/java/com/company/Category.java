@@ -151,7 +151,7 @@ public class Category
 
     public void sortCategory(int id)
     {
-        if(id==0) {
+        if(this.parent==null) {
             Collections.reverse(children);
         }
         else
