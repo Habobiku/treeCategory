@@ -1,23 +1,20 @@
 package com.company.DataBase;
 
+import com.company.config.Config;
+import java.io.IOException;
+
 import java.sql.*;
+
+import static com.company.config.Yml.readConfig;
 
 public class ConnectDB
 {
-    private String url;
-    private String user;
-    private String password;
-    public ConnectDB(String url,String user,String password)
-    {
-        this.url=url;
-        this.user=user;
-        this.password=password;
-    }
 
-    public Connection connect() throws Exception
+
+    public static Connection connect() throws SQLException, IOException
     {
-        Connection connection = DriverManager.getConnection(url, user, password);
-       return connection;
+        Config config=readConfig();
+        return DriverManager.getConnection(config.getUrl(), config.getUser(), config.getPassword());
     }
 
 

@@ -9,7 +9,7 @@ public class Main
 
     public static void main(String[] args) throws Exception
     {
-        Category root=createTree();
+        Category root=convertTree();
         root.sortCategory(1);
         printTree(root," ");
        // System.out.println(root.renderAsJson());
